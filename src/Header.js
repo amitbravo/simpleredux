@@ -3,12 +3,12 @@ import './App.css';
 import { useSelector } from 'react-redux'
 
 function App(props) {
-  const counter = useSelector(state => state)
+  const counter = useSelector(state => state.counterReducer.counter)
   console.log('counter',counter)
 
   return (
     <div className="App">
-        <div>Total Counts: {counter}</div>
+          <div>Total Counts: {counter}</div>
     </div>
   );
 }

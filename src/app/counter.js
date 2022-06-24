@@ -1,28 +1,45 @@
+const INCREMENT = 'increment'
+const DECREMENT = 'decrement'
+const SETVALUE = 'setvalue'
+
 export const increment = {
-  type: 'increment'
+  type: INCREMENT
 }
 
 export const decrement = {
-  type: 'decrement'
+  type: DECREMENT
 }
 
-// export const setvalue = (payload) => {
-//   type: 'setvalue',
-//   payload
-// }
+export const setvalue = (payload) => ({
+  type: SETVALUE,
+  payload
+})
 
 //store , action
-const initialState = 30
+const initialState = {
+  loading: false,
+  counter: 30
+}
+//redux use immutable
+
 
 const counterReducer = (state = initialState, action) => {
 
-  if(action.type == 'increment'){
-    return state = state + 1
+
+  switch(action.type) {
+
+    case INCREMENT:
+       return {...state, counter: state.counter + 1 };
+    case DECREMENT:
+        return {...state, counter: state.counter - 1 };
+    case SETVALUE:
+          return {...state, counter: action.payload }
+    default:
+        return state;
+
   }
-  if(action.type == 'decrement'){
-    return state = state - 1
-  }
-  return state
+
+
 }
 
 export default counterReducer

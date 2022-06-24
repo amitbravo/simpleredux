@@ -8,15 +8,12 @@ import { useSelector } from 'react-redux'
 
 function App() {
 
-  const [data, setData] = useState(3)
-
-
 
   return (
     <div className="App">
-      <Header data={data} />
+      <Header />
 
-       <CounterBtn func={setData} />
+       <CounterBtn  />
     </div>
   );
 }
